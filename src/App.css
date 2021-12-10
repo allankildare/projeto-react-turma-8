@@ -1,11 +1,18 @@
 .mainHeader {
-  height: 60px;
-  font-size: 24px;
-  font-weight: bold;
+  grid-area: header;
+}
+
+.container {
+  grid-area: main;
 }
 
 .mainFooter {
-  height: 40px;
-  font-size: 18px;
-  font-weight: bold;
+  grid-area: footer;
+}
+
+.App {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 10vh auto 40px;
+  grid-template-areas: "header" "main" "footer";
 }
