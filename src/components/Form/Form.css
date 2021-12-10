@@ -1,0 +1,16 @@
+.contato {
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    width: 25vw;
+    padding: 8px 1rem;
+}
+
+.contato > fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+.contato button {
+    height: 50px;
+    width: 200px;
+}
