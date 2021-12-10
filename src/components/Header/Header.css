@@ -1,0 +1,29 @@
+.mainHeader {
+    background-color: var(--bg-color);
+    color: var(--black);
+    font-weight: bold;
+    font-size: 26px;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 42%);
+}
+
+.mainHeader ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    height: 100%;
+}
+
+.mainHeader .logo {
+    font-family: var(--logo-font);
+    font-size: 36px;
+}
+
+.mainHeader li {
+    transition: .4s ease color;
+}
+
+.mainHeader li:hover {
+    color: var(--orange)
+}
