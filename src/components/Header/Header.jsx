@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import './Header.css'
+import style from './Header.module.css'
 export default class Header extends Component {
     render() {
         return (
-            <header className="mainHeader">
+            <header className={style.mainHeader}>
                 <ul>
                     <li>Drinks</li>
                     <li>Sobre nós</li>
