@@ -22,7 +22,6 @@ class Button extends Component {
     }
     
     render() {
-        console.log(this.props.type)
         return (
             <button
                 type={this.props.type}
