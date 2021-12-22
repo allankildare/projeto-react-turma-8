@@ -4,6 +4,7 @@ import Button from './../Button/Button'
 export default class Form extends Component {
     constructor(props) {
         super(props)
+        console.log('Fui inicializado')
         this.handleBlurClick = this.handleBlurClick.bind(this)
         this.state = {
             name: '',
@@ -21,6 +22,19 @@ export default class Form extends Component {
             )
         }
     }
+
+    componentDidMount() {
+        console.log('Fui montado')
+    }
+
+    componentDidUpdate() {
+        console.log('Fui atualizado');
+    }
+
+    componentWillUnmount() {
+        console.log('Fui desmontado')
+    }
+
     render() {
         return (
             <form className={`${style.contato} container`}>
