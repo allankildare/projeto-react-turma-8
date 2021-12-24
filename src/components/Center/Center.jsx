@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import style from './Center.module.css'
+import { StyledCenter } from './styles'
 
 export default class Center extends Component {
     render() {
         return (
-            <div className={style.centerDiv}>
+            <StyledCenter>
                 {this.props.children}
-            </div>
+            </StyledCenter>
         )
     }
 }

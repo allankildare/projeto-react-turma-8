@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import style from './Logo.module.css'
+import { StyledLogo } from './styles'
 
 export default class Logo extends Component {
     render() {
         return (
-            <h1 className={style.logo}>
+            <StyledLogo>
                 Bons Drinks
-            </h1>
+            </StyledLogo>
         )
     }
 }

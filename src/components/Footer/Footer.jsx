@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import styles from './Footer.module.css'
+import { StyledFooter } from './styles'
 export default class Footer extends Component {
     render() {
         return (
-            <footer className={styles.mainFooter}>
+            <StyledFooter>
                 Resilia 2021 - Alguns direitos reservados
-            </footer>
+            </StyledFooter>
         )
     }
 }
