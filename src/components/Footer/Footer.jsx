@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyledFooter } from './styles'
-export default class Footer extends Component {
-    render() {
-        return (
-            <StyledFooter>
-                Resilia 2021 - Alguns direitos reservados
-            </StyledFooter>
-        )
-    }
+
+function Footer() {
+    return (
+        <StyledFooter>
+            Resilia 2021 - Alguns direitos reservados
+        </StyledFooter>
+    )
 }
+
+export default Footer
