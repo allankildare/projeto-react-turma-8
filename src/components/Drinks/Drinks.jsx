@@ -1,25 +1,29 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default class Drinks extends Component {
-    constructor(props) {
-        super(props)
-        this.reqDrinks = this.reqDrinks.bind(this)
-        this.url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
-    }
-    
-    // request eh feita apos o clique do botao,
-    // como poderiamos fazer para isso ser feito no carregamento da pagina?
-    async reqDrinks() {
-        const response = await fetch(this.url)
+const DRINKS_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+
+export default function Drinks() {
+    const [drink, setDrink] = useState({drinks: []})
+
+    const reqDrinks = async (url) => {
+        const response = await fetch(url)
         const json = await response.json()
-        return json
+        setDrink(json)
     }
 
-    render() {
-        return (
-            <div>
-                <button onClick={this.reqDrinks}>Fazer request</button>
-            </div>
-        )
-    }
+    useEffect(() => {
+        reqDrinks(DRINKS_ENDPOINT)
+    }, [])
+
+    const { idDrink, strDrink, strCategory, strDrinkThumb } = drink.drinks[0] || {}
+
+    return (
+        <div>
+            <img src={strDrinkThumb} alt={`Imagem do drink ${strDrink}`} />
+            <p>Nome: <strong>{strDrink}</strong></p>
+            <p>Categoria: <em>{strCategory}</em></p>
+            <p>ID: {idDrink}</p>
+            <button onClick={() => reqDrinks(DRINKS_ENDPOINT)}>Não gostei! Outro drink por favor</button>
+        </div>
+    )
 }
