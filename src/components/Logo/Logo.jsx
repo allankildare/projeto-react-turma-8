@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyledLogo } from './styles'
 
-export default class Logo extends Component {
-    render() {
-        return (
-            <StyledLogo>
-                Bons Drinks
-            </StyledLogo>
-        )
-    }
+function Logo () {
+    return (
+        <StyledLogo>
+            Bons Drinks
+        </StyledLogo>
+    )
 }
+
+export default Logo
