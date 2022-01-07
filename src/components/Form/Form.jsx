@@ -1,59 +1,41 @@
-import React, { Component } from 'react'
+import React, { useState, useRef } from 'react'
 import style from './Form.module.css'
 import Button from './../Button/Button'
-export default class Form extends Component {
-    constructor(props) {
-        super(props)
-        console.log('Fui inicializado')
-        this.handleBlurClick = this.handleBlurClick.bind(this)
-        this.state = {
-            name: '',
-            nameError: ''
-        }
-    }
+export default function Form () {
+    const [name, setName] = useState('')
+    const [nameError, setNameError] = useState('')
+    const emailInput = useRef(null)
 
-    handleBlurClick({ target }) {
-        this.setState({ name: target.value })
+    function handleBlurClick ({ target }) {
+        setName(target.value)
         if (target.value.length > 100) {
-            this.setState(
-                {
-                    nameError: 'Número de caracteres excedido'
-                }
-            )
+            setNameError('Número de caracteres excedido')
         }
     }
 
-    componentDidMount() {
-        console.log('Fui montado')
+    function handleClick() {
+        emailInput.current.focus()
     }
 
-    componentDidUpdate() {
-        console.log('Fui atualizado');
-    }
-
-    componentWillUnmount() {
-        console.log('Fui desmontado')
-    }
-
-    render() {
-        return (
-            <form className={`${style.contato} container`}>
-                <fieldset>
-                    <label htmlFor="name">Nome</label>
-                    <input type="text" name="name" onBlur={this.handleBlurClick} />
-                    <p>{this.state.nameError}</p>
-                </fieldset>
-                
-                <fieldset>
-                    <label htmlFor="email">E-mail</label>
-                    <input type="text" name="email" />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="message">Mensagem</label>
-                    <textarea name="message" cols="30" rows="10"></textarea>
-                </fieldset>
-                <Button text="Enviar" />
-            </form>
-        )
-    }
+    return (
+        <form className={`${style.contato} container`}>
+            <fieldset>
+                <label htmlFor="name">Nome</label>
+                <input type="text" name="name" onBlur={handleBlurClick} />
+                <p>{nameError}</p>
+            </fieldset>
+            
+            <fieldset>
+                <label htmlFor="email">E-mail</label>
+                <input type="text" name="email" ref={emailInput} />
+                <button type="button" onClick={handleClick}>Ref</button>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="message">Mensagem</label>
+                <textarea name="message" cols="30" rows="10"></textarea>
+            </fieldset>
+            <Button text="Enviar" />
+        </form>
+    )
+    
 }
