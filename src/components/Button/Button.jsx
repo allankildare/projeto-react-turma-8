@@ -1,37 +1,27 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { StyledButton } from './styles'
 
-class Button extends Component {
-    constructor(props) {
-        super(props)
-        this.meuClique = this.meuClique.bind(this)
-        this.state = {
-            disabled: false
-        }
-    }
-    // aqui temos definidos os valores padroes das props desse componente
-    static defaultProps = {
-        type: 'button'
-    }
+function Button (props) {
+    const [disabled, setDisabled] = useState(false)
+    const { type = 'button', text } = props
 
-    meuClique() {
-        this.setState({ disabled: true })
+    function meuClique() {
+        setDisabled(true)
+
         setInterval(() => {
-            this.setState({ disabled: false })
+            setDisabled(false)
         }, 3000)
     }
-    
-    render() {
-        return (
-            <StyledButton
-                type={this.props.type}
-                disabled={this.state.disabled ? true : false}
-                onClick={this.meuClique}
-                >
-                    {this.props.text}
-            </StyledButton>
-        )
-    }
+
+    return (
+        <StyledButton
+            type={type}
+            disabled={disabled ? true : false}
+            onClick={meuClique}
+            >
+                {text}
+        </StyledButton>
+    )
 }
 
 export default Button
