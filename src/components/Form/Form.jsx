@@ -1,13 +1,12 @@
 import React, { useState, useRef } from 'react'
 import style from './Form.module.css'
 import Button from './../Button/Button'
+
 export default function Form () {
-    const [name, setName] = useState('')
     const [nameError, setNameError] = useState('')
     const emailInput = useRef(null)
 
     function handleBlurClick ({ target }) {
-        setName(target.value)
         if (target.value.length > 100) {
             setNameError('Número de caracteres excedido')
         }
